@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstcount.c                                      :+:      :+:    :+:   */
+/*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/22 10:33:59 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/11/30 11:15:59 by cfatrane         ###   ########.fr       */
+/*   Created: 2016/12/01 10:29:16 by cfatrane          #+#    #+#             */
+/*   Updated: 2016/12/01 10:36:06 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FDF_H
+# define FDF_H
 
-size_t	ft_lstcount(t_list *list)
-{
-	if (list == NULL)
-		return (0);
-	return (ft_lstcount(list->next) + 1);
-}
+# include "../libft/libft.h"
+# include "mlx.h"
+
+#endif
