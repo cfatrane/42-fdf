@@ -1,24 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/01 10:29:16 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/01 17:35:03 by cfatrane         ###   ########.fr       */
+/*   Created: 2016/12/01 17:36:29 by cfatrane          #+#    #+#             */
+/*   Updated: 2016/12/01 17:51:13 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
-
-# include "../libft/libft.h"
-# include <stdio.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
-# include <math.h>
-# include <mlx.h>
-
-#endif
+int	
