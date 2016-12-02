@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/01 10:29:16 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/02 19:52:25 by cfatrane         ###   ########.fr       */
+/*   Updated: 2016/12/02 20:46:26 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <math.h>
 # include <mlx.h>
 
-int	ft_fdf(int fd);
+int	**ft_fdf(int fd);
 
 
 #endif
