@@ -6,13 +6,18 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/01 10:37:12 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/01 16:17:26 by cfatrane         ###   ########.fr       */
+/*   Updated: 2016/12/02 11:36:44 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
+#include <mlx.h>
 #include <stdio.h>
-
+#include <string.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <errno.h>
+/*
 int	my_key_func(int keycode, void *param)
 {
 	printf("key event %d\n", keycode);
@@ -41,4 +46,19 @@ int main()
 	}
 	mlx_key_hook(win, my_key_func, 0);
 	mlx_loop(mlx);
+}
+*/
+
+int	main(int argc, char **argv)
+{
+	int fd;
+
+	fd = (open(argv[1], O_RDONLY));
+	if (argc != 2)
+	{
+		printf ("Error opening file unexist.ent: %s\n",strerror(errno));
+		perror("Usage :");
+	}
+	else if (!argv[1])
+		perror("No file argv[1]");
 }

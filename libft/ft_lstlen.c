@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/01 16:01:54 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/01 16:01:59 by cfatrane         ###   ########.fr       */
+/*   Updated: 2016/12/02 13:40:59 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,5 @@ size_t	ft_lstlen(t_list *list)
 {
 	if (list == NULL)
 		return (0);
-	return (ft_lstcount(list->next) + 1);
+	return (ft_lstlen(list->next) + 1);
 }

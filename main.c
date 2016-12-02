@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/01 10:29:16 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/02 19:52:25 by cfatrane         ###   ########.fr       */
+/*   Created: 2016/12/01 17:36:29 by cfatrane          #+#    #+#             */
+/*   Updated: 2016/12/02 14:27:13 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include "../includes/fdf.h"
 
-# include "../libft/libft.h"
-# include <stdio.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
-# include <math.h>
-# include <mlx.h>
+int	main(int argc, char **argv)
+{
+	int fd;
 
-int	ft_fdf(int fd);
+	fd = (open(argv[1], O_RDONLY));
+	if (argc != 2)
+		perror("Usage : ./fdf <filename> [ case_size z_size ]");
+	else
+		ft_fdf(fd);
 
-
-#endif
+}
