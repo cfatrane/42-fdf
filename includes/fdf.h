@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/01 10:29:16 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/02 20:46:26 by cfatrane         ###   ########.fr       */
+/*   Updated: 2016/12/03 19:58:32 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,11 @@
 
 int	**ft_fdf(int fd);
 
+typedef struct	s_point
+{
+	int abscisse;
+	int ordonnée;
+	int altitude;
+}				t_point;
 
 #endif
