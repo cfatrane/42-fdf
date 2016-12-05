@@ -6,7 +6,7 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/29 16:05:24 by cfatrane          #+#    #+#              #
-#*   Updated: 2016/12/05 19:14:21 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2016/12/05 19:54:41 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,16 +14,18 @@ NAME = fdf
 
 SRC_PATH = srcs
 
-SRC_NAME =	main.c		\
-			ft_create_map.c
+SRC_NAME =	main.c			\
+			ft_create_map.c	\
+
+OBJ_PATH = obj
 
 CPPFLAGS = -I includes/
 
 LDFLAGS = -L./libft/
 
-LDLIBS = -lft
+LFT = -lft
 
-CC = gcc -g
+CC = gcc -g $(CFLAGS)
 
 CFLAGS = -Wall -Wextra -Werror
 
@@ -33,7 +35,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ_NAME)
 	@make -C./libft/
-	@$(CC) $(CFLAGS) $(LDFLAGS) $(LDLIBS) $^ -o $@
+	@$(CC) $(LDFLAGS) $(LFT) $^ -o $@
 
 %.o: %.c
 	@$(CC) $(CFLAGS) $(CPPFLAGS) -c $^

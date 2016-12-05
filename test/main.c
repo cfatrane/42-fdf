@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/01 10:37:12 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/02 11:36:44 by cfatrane         ###   ########.fr       */
+/*   Updated: 2016/12/05 19:29:38 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <errno.h>
-/*
+
 int	my_key_func(int keycode, void *param)
 {
 	printf("key event %d\n", keycode);
@@ -47,8 +47,8 @@ int main()
 	mlx_key_hook(win, my_key_func, 0);
 	mlx_loop(mlx);
 }
-*/
 
+/*
 int	main(int argc, char **argv)
 {
 	int fd;
@@ -61,4 +61,4 @@ int	main(int argc, char **argv)
 	}
 	else if (!argv[1])
 		perror("No file argv[1]");
-}
+}*/
