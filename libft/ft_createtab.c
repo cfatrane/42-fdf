@@ -1,22 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_createtab.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/01 17:36:29 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/05 15:46:17 by cfatrane         ###   ########.fr       */
+/*   Created: 2016/12/05 11:44:59 by cfatrane          #+#    #+#             */
+/*   Updated: 2016/12/05 16:21:04 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fdf.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+int		**ft_createtab(int nblin, int nbcol)
 {
-	if (argc != 2)
-		perror("Usage : ./fdf <filename> [ case_size z_size ]");
-	else
-		ft_create_map(argv[1]);
+	int i;
+	int **tab;
+	int *tab2;
 
+	i = 0;
+	if (!(tab = (int**)malloc(sizeof(tab) * nblin)))
+		return (NULL);
+	if (!(tab2 = (int*)malloc(sizeof(tab2) * (nbcol * nblin))))
+		return (NULL);
+	while (i < nblin)
+	{
+		tab[i] = &tab2[i * nbcol];
+		i++;
+	}
+	return (tab);
 }

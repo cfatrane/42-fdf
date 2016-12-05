@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/01 10:29:16 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/03 19:58:32 by cfatrane         ###   ########.fr       */
+/*   Updated: 2016/12/05 15:45:53 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <math.h>
 # include <mlx.h>
 
-int	**ft_fdf(int fd);
+int	ft_create_map(char *argv);
 
 typedef struct	s_point
 {

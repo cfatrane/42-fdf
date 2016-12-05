@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/01 17:36:29 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/05 15:46:17 by cfatrane         ###   ########.fr       */
+/*   Updated: 2016/12/02 14:27:13 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 
 int	main(int argc, char **argv)
 {
+	int fd;
+
+	fd = (open(argv[1], O_RDONLY));
 	if (argc != 2)
 		perror("Usage : ./fdf <filename> [ case_size z_size ]");
 	else
-		ft_create_map(argv[1]);
+		ft_fdf(fd);
 
 }
