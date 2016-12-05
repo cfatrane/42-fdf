@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/05 15:50:15 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/05 16:23:03 by cfatrane         ###   ########.fr       */
+/*   Updated: 2016/12/05 19:20:29 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ int		ft_count_nblin(char *argv)
 		return (-1);
 	ord = 0;
 	while (get_next_line(fd, &line))
+	{
+		free(line);
 		ord++;
+	}
 	if ((close(fd)) == -1)
 		return (-1);
 	return (ord);
@@ -42,6 +45,7 @@ int		ft_count_nbcol(char *argv)
 	abs = 0;
 	get_next_line(fd, &line);
 	abs = ft_count_words_sep(line, ' ');
+	free(line);
 	if ((close(fd)) == -1)
 		return (-1);
 	return (abs);
@@ -51,30 +55,33 @@ int		**ft_fill_map(int fd, int nblin, int nbcol)
 {
 	char	*line;
 	char	**split_line;
-	int		**tab;
+	int		**map;
 	int		x;
 	int		y;
 
 	x = 0;
-	tab = ft_createtab(nblin, nbcol);
+	map = ft_createtab(nblin, nbcol);
 	while (get_next_line(fd, &line))
 	{
 		y = 0;
 		split_line = ft_strsplit(line, ' ');
 		while (split_line[y] != NULL)
 		{
-			tab[x][y] = ft_atoi(split_line[y]);
+			map[x][y] = ft_atoi(split_line[y]);
+			free(split_line[y]);
 			y++;
 		}
+		free(split_line);
+		free(line);
 		x++;
 	}
-	return (tab);
+	return (map);
 }
 
 int		ft_create_map(char *argv)
 {
 	int		fd;
-	int		**tab;
+	int		**map;
 	int		nblin;
 	int		nbcol;
 
@@ -83,8 +90,23 @@ int		ft_create_map(char *argv)
 	fd = (open(argv, O_RDONLY));
 	if (fd == -1)
 		return (-1);
-	tab = ft_fill_map(fd, nblin, nbcol);
-	free(tab);
+	map = ft_fill_map(fd, nblin, nbcol);
+//	ft_draw_map(map); // Dessiner map avec algo de Bresenham
+	int x = 0;
+	int y = 0;
+	while (y < nblin)
+	{
+		x = 0;
+		while (x < nbcol)
+		{
+			ft_putnbr(map[y][x]);
+			ft_putchar(' ');
+			x++;
+		}
+		ft_putchar('\n');
+		y++;
+	}
+	free(*map);
 	if ((close(fd)) == -1)
 		return (-1);
 	return (0);

@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fdf.c                                           :+:      :+:    :+:   */
+/*   ft_draw_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/05 17:17:59 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/05 18:22:26 by cfatrane         ###   ########.fr       */
+/*   Created: 2016/12/05 18:32:44 by cfatrane          #+#    #+#             */
+/*   Updated: 2016/12/05 18:35:58 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-int		ft_fdf(char *argv)
+void	ft_draw_map(int **map)
 {
-//	ft_check(argv); PARSER OKLM
-	ft_create_map(argv);
 
 
 
-	return (0);
+
+
+
 }

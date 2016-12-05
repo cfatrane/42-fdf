@@ -6,7 +6,7 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/29 16:05:24 by cfatrane          #+#    #+#              #
-#*   Updated: 2016/12/05 15:59:42 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2016/12/05 19:14:21 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ LDFLAGS = -L./libft/
 
 LDLIBS = -lft
 
-CC = gcc
+CC = gcc -g
 
 CFLAGS = -Wall -Wextra -Werror
 
