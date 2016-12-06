@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/05 18:32:44 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/06 14:24:25 by cfatrane         ###   ########.fr       */
+/*   Updated: 2016/12/06 15:29:29 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_draw_map(int **map, int nblin, int col)
 		x = 0;
 		while (x < col)
 		{
-			mlx_pixel_put(mlx, win, k + (x * 10),k + (y * 10), 0x00FFFFFF);
+			mlx_pixel_put(mlx, win, k + (x * 20),k + (y * 20), 0x00FF0000);
 			x++;
 		}
 		y++;
