@@ -6,7 +6,7 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/29 16:05:24 by cfatrane          #+#    #+#              #
-#*   Updated: 2016/12/05 19:54:41 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2016/12/06 13:17:07 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ SRC_PATH = srcs
 
 SRC_NAME =	main.c			\
 			ft_create_map.c	\
+			ft_draw_map.c	\
 
 OBJ_PATH = obj
 
@@ -35,7 +36,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ_NAME)
 	@make -C./libft/
-	@$(CC) $(LDFLAGS) $(LFT) $^ -o $@
+	@$(CC) $(LDFLAGS) $(LFT) $^ -o $@ -lmlx -framework OpenGL -framework AppKit
 
 %.o: %.c
 	@$(CC) $(CFLAGS) $(CPPFLAGS) -c $^

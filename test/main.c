@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/01 10:37:12 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/05 19:29:38 by cfatrane         ###   ########.fr       */
+/*   Updated: 2016/12/06 15:06:04 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,14 @@ int main()
 		x = 50;
 		while (x < 150)
 		{
-			mlx_pixel_put(mlx, win, x, y, 0x00FFFFFF);
+			mlx_pixel_put(mlx, win, x, y, 0xFF0000);
 			x++;
 		}
 		y++;
 	}
 	mlx_key_hook(win, my_key_func, 0);
 	mlx_loop(mlx);
+			while (5);
 }
 
 /*

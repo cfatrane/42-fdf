@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/05 15:50:15 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/05 19:52:36 by cfatrane         ###   ########.fr       */
+/*   Updated: 2016/12/06 13:12:17 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,38 +17,37 @@ int		ft_count_nblin(char *argv)
 {
 	char	*line;
 	int		fd;
-	int		ord;
+	int		nblin;
 
 	fd = (open(argv, O_RDONLY));
 	if (fd == -1)
 		return (-1);
-	ord = 0;
+	nblin = 0;
 	while (get_next_line(fd, &line))
 	{
 		free(line);
-		ord++;
+		nblin++;
 	}
 	if ((close(fd)) == -1)
 		return (-1);
-	return (ord);
+	return (nblin);
 }
 
 int		ft_count_nbcol(char *argv)
 {
 	char	*line;
 	int		fd;
-	int		abs;
+	int		nbcol;
 
 	fd = (open(argv, O_RDONLY));
 	if (fd == -1)
 		return (-1);
-	abs = 0;
 	get_next_line(fd, &line);
-	abs = ft_count_words_sep(line, ' ');
+	nbcol = ft_count_words_sep(line, ' ');
 	free(line);
 	if ((close(fd)) == -1)
 		return (-1);
-	return (abs);
+	return (nbcol);
 }
 
 int		**ft_fill_map(int fd, int nblin, int nbcol)
@@ -91,10 +90,15 @@ int		ft_create_map(char *argv)
 	if (fd == -1)
 		return (-1);
 	map = ft_fill_map(fd, nblin, nbcol);
-//	ft_draw_map(map); // Dessiner map avec algo de Bresenham
-	int x = 0;
-	int y = 0;
-	while (y < nblin)
+	ft_draw_map(map, nblin, nbcol); // Dessiner map avec algo de Bresenham
+/*	int x;
+	int y;
+
+	x = 0;
+	y = 0;*/
+
+//	ft_putnbr(map[3][3]);
+/*	while (y < nblin)
 	{
 		x = 0;
 		while (x < nbcol)
@@ -105,7 +109,7 @@ int		ft_create_map(char *argv)
 		}
 		ft_putchar('\n');
 		y++;
-	}
+	}*/
 	free(*map);
 	if ((close(fd)) == -1)
 		return (-1);
