@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/05 18:32:44 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/07 18:38:38 by cfatrane         ###   ########.fr       */
+/*   Updated: 2016/12/07 19:08:34 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,12 @@ int	ft_draw_line(int **map, int nblin, int nbcol, void *mlx, void *win)
 	int x2;
 	int y2;
 	int x;
+	int abs;
+	int ord;
 
 	y1 = 0;
+	abs = 0;
+	ord = 0;
 	while (y1 < nblin * 15)
 	{
 		x1 = 0;
@@ -48,8 +52,12 @@ int	ft_draw_colonne(int **map, int nblin, int nbcol, void *mlx, void *win)
 	int x2;
 	int y2;
 	int y;
+	int abs;
+	int ord;
 
 	y1 = 0;
+	abs = 0;
+	ord = 0;
 	while (y1 < (nblin - 1) * 15)
 	{
 		x1 = 0;
@@ -69,7 +77,6 @@ int	ft_draw_colonne(int **map, int nblin, int nbcol, void *mlx, void *win)
 	}
 	return (0);
 }
-
 
 int	ft_draw_parall(int **map, int nblin, int nbcol, void *mlx, void *win)
 {
@@ -100,7 +107,6 @@ int	ft_draw_parall(int **map, int nblin, int nbcol, void *mlx, void *win)
 	return (0);
 }
 
-
 int	ft_draw_map(int **map, int nblin, int nbcol)
 {
 	void	*mlx;
@@ -111,7 +117,7 @@ int	ft_draw_map(int **map, int nblin, int nbcol)
 	win = mlx_new_window(mlx, 500, 500, "fdf");
 	ft_draw_line(map, nblin, nbcol, mlx, win);
 	ft_draw_colonne(map, nblin, nbcol, mlx, win);
-	ft_draw_parall(map, nblin, nbcol, mlx, win);
+	//	ft_draw_parall(map, nblin, nbcol, mlx, win);
 	mlx_loop(mlx);
 	return (0);
 }
