@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/01 10:29:16 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/06 14:12:10 by cfatrane         ###   ########.fr       */
+/*   Updated: 2016/12/07 11:03:40 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,13 @@ typedef struct	s_point
 	int ordonnée;
 	int altitude;
 }				t_point;
+
+typedef struct	s_draw
+{
+	int x1;
+	int y1;
+	int x2;
+	int y2;
+}				t_draw;
 
 #endif

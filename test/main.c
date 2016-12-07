@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/01 10:37:12 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/06 18:23:37 by cfatrane         ###   ########.fr       */
+/*   Updated: 2016/12/07 10:53:01 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,22 @@ int main()
 {
 	void *mlx;
 	void *win;
-	int x0 = 250;
-	int y0 = 250;
-	int a = 0;
-	int R = 200;
+	int x1 = 25;
+	int y1 = 25;
+	int x2 = 150;
+	int y2 = 25;
+	int x = x1;
+	int k = 50;
 
-	int avc = ((360)/(8 * R));
+//	int avc = ((360)/(8 * R));
 	mlx = mlx_init();
 	win = mlx_new_window(mlx, 500, 500, "jerome dans le retro");
 
-		mlx_string_put(mlx, win, x0, y0, 0xFF0000, "JEROME DANS LE METRO");
+	while (x <= x2)
+	{
+		mlx_pixel_put(mlx, win, (k + x), (y1 + ((y2 - y1) * (x - x1))/(x2 - x1)), 0x00FF0000);
+		x++;
+	}
 /*	while (avc < 360)
 	{
 		avc++;

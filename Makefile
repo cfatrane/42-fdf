@@ -6,7 +6,7 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/29 16:05:24 by cfatrane          #+#    #+#              #
-#*   Updated: 2016/12/06 13:17:07 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2016/12/07 11:05:59 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ LDFLAGS = -L./libft/
 
 LFT = -lft
 
-CC = gcc -g $(CFLAGS)
+CC = gcc 
 
 CFLAGS = -Wall -Wextra -Werror
 
@@ -39,7 +39,7 @@ $(NAME): $(OBJ_NAME)
 	@$(CC) $(LDFLAGS) $(LFT) $^ -o $@ -lmlx -framework OpenGL -framework AppKit
 
 %.o: %.c
-	@$(CC) $(CFLAGS) $(CPPFLAGS) -c $^
+	@$(CC) $(CPPFLAGS) -c $^
 
 clean:
 	@make clean -C ./libft/
