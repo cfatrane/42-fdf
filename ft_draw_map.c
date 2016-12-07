@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/05 18:32:44 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/07 18:31:11 by cfatrane         ###   ########.fr       */
+/*   Updated: 2016/12/07 18:38:38 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,21 +79,18 @@ int	ft_draw_parall(int **map, int nblin, int nbcol, void *mlx, void *win)
 	int y2;
 	int x;
 
-	x1 = 0;
 	y1 = 0;
-	x2 = x1 + 0.5 * 50;
-	y2 = y1 + 0.5 * 50;
 	while (y1 < nblin * 15)
 	{
-		x = x1;
 		x1 = 0;
+		y2 = y1 + 0.5 * 50;
 		while (x1 < nbcol * 15)
 		{
 			x2 = x1 + 0.5 * 50;
+			x = x1;
 			while (x <= x2)
 			{
-				printf("issou\n");
-				mlx_pixel_put(mlx, win, 50 + x, 50 + ((y1 + ((y2 - y1) * (x - x1)) / (x2 - x1))), 0x00FF0000);
+				mlx_pixel_put(mlx, win, 50 + x, 50 + ((y1 + ((y2 - y1) * (x - x1)) / (x2 - x1))), 0x0000FFFF);
 				x++;
 			}
 			x1 = x1 + 15;
