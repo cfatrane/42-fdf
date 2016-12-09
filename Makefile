@@ -6,7 +6,7 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/29 16:05:24 by cfatrane          #+#    #+#              #
-#*   Updated: 2016/12/09 17:57:41 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2016/12/09 18:34:51 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRC_PATH = srcs
 SRC_NAME =	main.c			\
 			ft_create_map.c	\
 			ft_draw_map.c	\
-			ft_draw_line.c	\
+			ft_draw_cas.c	\
 
 CPPFLAGS = -I includes/
 
