@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/01 10:37:12 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/08 11:02:41 by cfatrane         ###   ########.fr       */
+/*   Updated: 2016/12/09 18:22:36 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ int main()
 {
 	void *mlx;
 	void *win;
-	int x1 = 25;
-	int y1 = 25;
-	int x2 = x1 + (0.5) * 5;
-	int y2 = y1 + (0.5/2) * 5;
+	int x1 = 400;
+	int y1 = 400;
+	int x2 = 200;
+	int y2 = 200;
 	//	int x = x1;
 	int k = 50;
 
@@ -44,11 +44,13 @@ int main()
 	int Y1 = y1 + (0.5/2) * 0;
 	int X2 = x2 + 0.5 * 20;
 	int Y2 = y2 + (0.5/2) * 20;*/
-	int x = x1;
+	int x = x2;
 //	x = x1;
-	while (x <= x2)
+	mlx_string_put(mlx, win, 50 + x1, 50 + y1, 0x00FF0000, "Debut");
+	mlx_string_put(mlx, win, 50 + x2, 50 + y2, 0x00FF0000, "Fin");
+	while (x <= x1)
 	{
-		mlx_pixel_put(mlx, win, 50 + x, 50 + ((y1 + ((y2 - y1) * (x - x1)) / (x2 - x1))), 0x00FF0000);
+		mlx_pixel_put(mlx, win, 50 + x, 50 + ((y2 + ((y1 - y2) * (x - x2)) / (x1 - x2))), 0x00FF0000);
 		x++;
 	}
 /*	while (x <= X1)
