@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/01 10:29:16 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/10 16:31:43 by cfatrane         ###   ########.fr       */
+/*   Updated: 2016/12/10 17:40:08 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,29 +22,27 @@
 # include <mlx.h>
 
 
-typedef struct	s_point
-{
-	int	abscisse;
-	int	ordonnée;
-	int	altitude;
-}				t_point;
-
 typedef struct	s_env
 {
 	void	*mlx;
 	void	*win;
+	int		**map;
 	int		nblin;
 	int		nbcol;
-	int x1;
-	int y1;
-	int x2;
-	int y2;
 }				t_env;
+
+typedef struct	s_point
+{
+	int		x1;
+	int		y1;
+	int		x2;
+	int		y2;
+}				t_point;
 
 int		ft_fdf(char *argv);
 int		ft_create_map(char *argv);
-int		ft_draw_map(int **map, t_env *fdf);
-int		ft_draw_line(int x1, int y1, int x2, int y2, t_env *fdf);
+int		ft_draw_map(t_env *fdf);
+int		ft_draw_line(int x1, int y1,int x2, int y2, t_env *fdf);
 int		key_hook(int keycode, t_env *fdf);
 int		mouse_hook(int button, int x, int y, t_env fdf);
 int		expose_hook(t_env *fdf);
