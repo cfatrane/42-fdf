@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/05 15:50:15 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/07 16:50:21 by cfatrane         ###   ########.fr       */
+/*   Updated: 2016/12/10 16:32:45 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,18 +79,17 @@ int		**ft_fill_map(int fd, int nblin, int nbcol)
 
 int		ft_create_map(char *argv)
 {
+	t_env	fdf;
 	int		fd;
 	int		**map;
-	int		nblin;
-	int		nbcol;
 
-	nblin = ft_count_nblin(argv);
-	nbcol = ft_count_nbcol(argv);
+	fdf.nblin = ft_count_nblin(argv);
+	fdf.nbcol = ft_count_nbcol(argv);
 	fd = (open(argv, O_RDONLY));
 	if (fd == -1)
 		return (-1);
-	map = ft_fill_map(fd, nblin, nbcol);
-	ft_draw_map(map, nblin, nbcol); // Dessiner map avec algo de Bresenham
+	map = ft_fill_map(fd, fdf.nblin, fdf.nbcol);
+	ft_draw_map(map, &fdf); // Dessiner map avec algo de Bresenham
 	free(*map);
 	if ((close(fd)) == -1)
 		return (-1);

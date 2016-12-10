@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/01 10:37:12 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/09 18:32:17 by cfatrane         ###   ########.fr       */
+/*   Updated: 2016/12/10 16:08:17 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,12 @@
 #include <fcntl.h>
 #include <errno.h>
 #include <math.h>
+#include <stdlib.h>
 
 int	my_key_func(int keycode, void *param)
 {
+	if (keycode == 53)
+		exit (0);
 	printf("key event %d\n", keycode);
 	return (0);
 }
@@ -62,7 +65,7 @@ int main()
 		{
 		avc++;
 		}*/
-	//	mlx_key_hook(win, my_key_func, 0);
+		mlx_key_hook(win, my_key_func, 0);
 	mlx_loop(mlx);
 	while (5);
 }
