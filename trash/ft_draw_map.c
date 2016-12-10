@@ -6,16 +6,11 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/05 18:32:44 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/10 14:49:56 by cfatrane         ###   ########.fr       */
+/*   Updated: 2016/12/10 13:52:00 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
-
-double cte = 1;
-double cte1 = 0.5;
-double cte2 = 0.5;
-int pos = 15;
 
 int	ft_draw_parall_col(int **map, int nblin, int nbcol, void *mlx, void *win)
 {
@@ -27,6 +22,10 @@ int	ft_draw_parall_col(int **map, int nblin, int nbcol, void *mlx, void *win)
 	int y;
 	int col;
 	int line;
+	double cte = 0.5;
+	double cte1 = 0.5;
+	double cte2 = 0.5;
+	int k = 20;
 
 	col = 0;
 	x = 0;
@@ -34,12 +33,12 @@ int	ft_draw_parall_col(int **map, int nblin, int nbcol, void *mlx, void *win)
 	{
 		y = 0;
 		line = 0;
-		x1 = x + (cte * (pos * map[line][col]));
-		y1 = y + ((cte / 2) * (pos * map[line][col]));
+		x1 = x + (cte * (15 * map[line][col]));
+		y1 = y + ((cte / 2) * (15 * map[line][col]));
 		while (y < ((nblin - 1) * 20))
 		{
-			x2 = x + (cte * (pos * map[line + 1][col]));
-			y2 = (y + 20) + ((cte / 2) * (pos * map[line + 1][col]));
+			x2 = x + (cte * (15 * map[line + 1][col]));
+			y2 = (y + 20) + ((cte / 2) * (15 * map[line + 1][col]));
 			ft_draw_line(x1, y1, x2, y2, mlx, win);
 			line++;
 			y = y + 20;
@@ -62,6 +61,10 @@ int	ft_draw_parall_line(int **map, int nblin, int nbcol, void *mlx, void *win)
 	int y;
 	int col;
 	int line;
+	double cte = 0.5;
+	double cte1 = 0.5;
+	double cte2 = 0.5;
+	int k = 20;
 
 	line = 0;
 	y = 0;
@@ -69,12 +72,12 @@ int	ft_draw_parall_line(int **map, int nblin, int nbcol, void *mlx, void *win)
 	{
 		col = 0;
 		x = 0;
-		x1 = x + (cte * (pos * map[line][col]));
-		y1 = y + ((cte / 2) * (pos * map[line][col]));
+		x1 = x + (cte * (15 * map[line][col]));
+		y1 = y + ((cte / 2) * (15 * map[line][col]));
 		while (x < (nbcol - 1 ) * 20)
 		{
-			x2 = (x + 20) + (cte * (pos * map[line][col + 1]));
-			y2 = y + ((cte / 2) * (pos * map[line][col + 1]));
+			x2 = (x + 20) + (cte * (15 * map[line][col + 1]));
+			y2 = y + ((cte / 2) * (15 * map[line][col + 1]));
 			ft_draw_line(x1,y1, x2, y2, mlx, win);
 			col++;
 			x = x + 20;
