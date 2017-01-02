@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_print_hex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/22 10:32:00 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/15 18:40:28 by cfatrane         ###   ########.fr       */
+/*   Created: 2016/12/19 13:42:35 by cfatrane          #+#    #+#             */
+/*   Updated: 2016/12/26 18:24:58 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+void	ft_print_hex(size_t nb)
 {
-	int nb;
-	int sign;
+	char	*str;
 
-	nb = 0;
-	sign = 1;
-	while (ft_isspace((int)*str))
-		str++;
-	if (*str == '+' || *str == '-')
-	{
-		if (*str == '-')
-			sign = (-1);
-		str++;
-	}
-	while (ft_isdigit((int)*str))
-	{
-		nb = nb * 10 + *str - '0';
-		str++;
-	}
-	return (sign * nb);
+	str = "0123456789abcdef";
+	if (nb >= 16)
+		ft_print_hex(nb / 16);
+	ft_putchar(str[nb % 16]);
 }

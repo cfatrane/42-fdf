@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 10:45:03 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/06 16:46:11 by cfatrane         ###   ########.fr       */
+/*   Updated: 2016/12/30 18:54:43 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,17 @@
 # include <string.h>
 # include <unistd.h>
 
+# include <stdio.h>
+
 # define BUFF_SIZE 32
+
+typedef struct		s_gnl
+{
+	char			*text;
+	char			*tempo;
+	struct s_gnl	*next;
+	int				fd;
+}					t_gnl;
 
 void				*ft_memset(void *b, int c, size_t n);
 void				ft_bzero(void *s, size_t n);
@@ -67,11 +77,11 @@ char				*ft_itoa(int n);
 void				ft_putchar(char c);
 void				ft_putstr(char const *s);
 void				ft_putendl(char const *s);
-void				ft_putnbr(int n);
+void				ft_putnbr(long long int n);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char const *s, int fd);
 void				ft_putendl_fd(char const *s, int fd);
-void				ft_putnbr_fd(int n, int fd);
+void				ft_putnbr_fd(long long int n, int fd);
 
 typedef struct		s_list
 {
@@ -92,19 +102,35 @@ int					get_next_line(const int fd, char **line);
 int					ft_islower(int c);
 int					ft_isspace(int c);
 int					ft_isupper(int c);
+int					ft_isxdigit(int c);
 char				*ft_strndup(const char *s1, size_t n);
 int					ft_abs(int nb);
+
+void				ft_print_hex(size_t n);
+unsigned char		ft_swap_bits(unsigned char octet);
+void				ft_print_bits(unsigned char octet);
+
 size_t				ft_tabintlen(int *tab);
 int					**ft_createtab(int nblin, int nbcol);
+int					ft_nbrlen(long long int nbr);
+int					ft_nbrlen_uns(unsigned long long int nb);
+int					ft_nbcmp(int nb1, int nb2);
 size_t				ft_lstlen(t_list *list);
 int					ft_count_itoa(int num);
+void				ft_putnbr_base(unsigned long long int n, char *base);
+void				ft_putnbr_uns(unsigned long long int n);
+char				*ft_itoa_base(unsigned long long int n, char *base);
+int					ft_size_tab_base(size_t n, int base);
 int					ft_count_words_sep(char const *s, char c);
 size_t				ft_strlen_sep(char const *s, char c);
+char				*ft_strrev(char *str);
 char				*ft_strrev_itoa(char *str);
 void				ft_swap(int *a, int *b);
 int					ft_sqrt(int nb);
 int					*ft_range(int min, int max);
-char				*ft_strccpy(char *dst, const char *src, char c);
-char				*ft_strcdup(const char *s1, char c);
+char				*ft_strcpy_c(char *dst, const char *src, char c);
+char				*ft_strdup_c(const char *s1, char c);
+void				ft_putstr_n(const char *s, int n);
+void				ft_putnbr_n(long long int nb, int n);
 
 #endif

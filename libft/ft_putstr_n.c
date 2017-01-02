@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_putstr_n.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/22 10:32:00 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/15 18:40:28 by cfatrane         ###   ########.fr       */
+/*   Created: 2016/12/29 17:37:17 by cfatrane          #+#    #+#             */
+/*   Updated: 2016/12/29 17:37:23 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+void	ft_putstr_n(const char *s, int n)
 {
-	int nb;
-	int sign;
+	int i;
 
-	nb = 0;
-	sign = 1;
-	while (ft_isspace((int)*str))
-		str++;
-	if (*str == '+' || *str == '-')
+	i = 0;
+	while (i < n && s[i] != '\0')
 	{
-		if (*str == '-')
-			sign = (-1);
-		str++;
+		ft_putchar(s[i]);
+		i++;
 	}
-	while (ft_isdigit((int)*str))
-	{
-		nb = nb * 10 + *str - '0';
-		str++;
-	}
-	return (sign * nb);
 }

@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_nbrlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/22 10:32:00 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/15 18:40:28 by cfatrane         ###   ########.fr       */
+/*   Created: 2016/12/19 13:10:19 by cfatrane          #+#    #+#             */
+/*   Updated: 2016/12/28 14:58:32 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+int	ft_nbrlen(long long int nb)
 {
-	int nb;
-	int sign;
+	int len;
 
-	nb = 0;
-	sign = 1;
-	while (ft_isspace((int)*str))
-		str++;
-	if (*str == '+' || *str == '-')
+	len = 0;
+	if (nb == 0)
+		return (1);
+	if (nb < 0)
 	{
-		if (*str == '-')
-			sign = (-1);
-		str++;
+		nb = -nb;
+		len++;
 	}
-	while (ft_isdigit((int)*str))
+	while (nb > 0)
 	{
-		nb = nb * 10 + *str - '0';
-		str++;
+		nb /= 10;
+		len++;
 	}
-	return (sign * nb);
+	return (len);
 }

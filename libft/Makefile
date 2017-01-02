@@ -6,7 +6,7 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/29 16:05:24 by cfatrane          #+#    #+#              #
-#*   Updated: 2016/12/06 16:45:45 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2016/12/30 18:55:17 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,41 +74,61 @@ SRC_NAME =	ft_memset.c				\
 			ft_islower.c			\
 			ft_isupper.c			\
 			ft_isspace.c			\
+			ft_isxdigit.c			\
 			ft_strndup.c			\
 			ft_abs.c				\
+			ft_print_hex.c			\
+			ft_swap_bits.c			\
+			ft_print_bits.c			\
 			ft_tabintlen.c			\
 			ft_createtab.c			\
+			ft_nbrlen.c				\
+			ft_nbrlen_uns.c			\
+			ft_nbcmp.c				\
 			ft_lstlen.c				\
 			ft_count_itoa.c			\
+			ft_putnbr_base.c		\
+			ft_putnbr_uns.c			\
+			ft_itoa_base.c			\
+			ft_size_tab_base.c		\
 			ft_count_words_sep.c	\
 			ft_strlen_sep.c			\
+			ft_strrev.c				\
 			ft_strrev_itoa.c		\
 			ft_swap.c				\
 			ft_sqrt.c				\
 			ft_range.c				\
-			ft_strccpy.c			\
-			ft_strcdup.c			\
+			ft_strcpy_c.c			\
+			ft_strdup_c.c			\
+			ft_putstr_n.c			\
+			ft_putnbr_n.c			\
+
+OBJ_PATH = ./objs/
+
+OBJ_NAME = $(SRC_NAME:.c=.o)
+
+OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
 
 CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
-OBJ_NAME = $(SRC_NAME:.c=.o)
-
 all: $(NAME)
 
-%.o : %.c
-	@$(CC) $(CFLAGS) -c $^
-
-$(NAME): $(OBJ_NAME)
+$(NAME): $(OBJ)
 	@echo "Creation of $(NAME) ..."
-	@ar rc $(NAME) $(OBJ_NAME)
+	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
-	@echo "$(NAME) created"
+	@echo "$(NAME) created\n"
+
+$(OBJ_PATH)%.o: $(SRC)%.c
+	@mkdir $(OBJ_PATH) 2> /dev/null || true
+	@$(CC) $(CFLAGS) -o $@ -c $<
 
 clean:
 	@echo "Removal of .o files of $(NAME) ..."
-	@rm -f $(OBJ_NAME)
+	@rm -f $(OBJ)
+	@rmdir $(OBJ_PATH) 2> /dev/null || true
 	@echo "Files .o deleted\n"
 
 fclean: clean

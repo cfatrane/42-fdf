@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/22 10:32:00 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/15 18:40:28 by cfatrane         ###   ########.fr       */
+/*   Created: 2016/12/16 11:24:12 by cfatrane          #+#    #+#             */
+/*   Updated: 2016/12/29 18:17:44 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+char*ft_itoa_base(unsigned long long int n, char *base)
 {
-	int nb;
-	int sign;
+	char				*str;
+	unsigned long long	i;
 
-	nb = 0;
-	sign = 1;
-	while (ft_isspace((int)*str))
-		str++;
-	if (*str == '+' || *str == '-')
+	i = ft_strlen(base);
+	if (!(str = (char *)malloc(sizeof(char) * 2)))
+		return (NULL);
+	if (n >= i)
+		str = ft_strjoin(ft_itoa_base(n / i, base), ft_itoa_base(n % i, base));
+	else if (n < i)
 	{
-		if (*str == '-')
-			sign = (-1);
-		str++;
+		str[0] = base[n];
+		str[1] = '\0';
 	}
-	while (ft_isdigit((int)*str))
-	{
-		nb = nb * 10 + *str - '0';
-		str++;
-	}
-	return (sign * nb);
+	return (str);
 }

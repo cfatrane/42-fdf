@@ -6,11 +6,17 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/05 18:32:44 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/12 14:33:24 by cfatrane         ###   ########.fr       */
+/*   Updated: 2016/12/16 11:50:13 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
+
+int	destroy(t_env *fdf)
+{
+	mlx_destroy_window(fdf->mlx_ptr, fdf->win_ptr);
+	exit(0);
+}
 
 int	ft_draw_map(t_env *fdf)
 {
@@ -19,6 +25,7 @@ int	ft_draw_map(t_env *fdf)
 	mlx_key_hook(fdf->win_ptr, key_hook, fdf);
 //	mlx_mouse_hook (fdf->win_ptr, int (*funct_ptr)(), void *param );
 	mlx_expose_hook(fdf->win_ptr, expose_hook, fdf);
-	mlx_loop(fdf->mlx_ptr);
+	mlx_hook(fdf->win_ptr, 17, 1L << 17, destroy, fdf);
+;	mlx_loop(fdf->mlx_ptr);
 	return (0);
 }

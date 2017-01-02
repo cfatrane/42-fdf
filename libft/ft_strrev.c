@@ -1,18 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/04 13:55:26 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/28 13:35:09 by cfatrane         ###   ########.fr       */
+/*   Created: 2016/11/19 10:11:37 by cfatrane          #+#    #+#             */
+/*   Updated: 2016/12/18 12:52:15 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(long long int n)
+char	*ft_strrev(char *str)
 {
-	ft_putnbr_fd(n, 1);
+	char		*ret;
+	size_t		i;
+	size_t		j;
+
+	j = 0;
+	i = 0;
+	if (!(ret = (char *)malloc(sizeof(char) * (ft_strlen(str) + 1))))
+		return (NULL);
+	while (str[i])
+		i++;
+	i--;
+	while ((size_t)j != ft_strlen(str))
+	{
+		ret[j] = str[i];
+		j++;
+		i--;
+	}
+	ret[j] = '\0';
+	return (ret);
 }
