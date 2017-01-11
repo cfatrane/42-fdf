@@ -5,21 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/02 13:05:50 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/02 14:10:20 by cfatrane         ###   ########.fr       */
+/*   Created: 2016/12/05 17:17:59 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/01/11 19:29:45 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-int	ft_fdf(int fd)
+int		ft_fdf(char *argv)
 {
-	char *line;
-	int y;
-
-	y = 0;
-	while(get_next_line(fd, &line))
-		y++;
-
+//	ft_check(argv); PARSER OKLM
+	ft_create_map(argv);
 	return (0);
 }
