@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/01 10:29:16 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/12 16:33:26 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/11 20:00:44 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ typedef struct	s_env
 	int		**map;
 	int		nblin;
 	int		nbcol;
+	int		win_lengh;
+	int		win_width;
+
 }				t_env;
 
 typedef struct	s_coord

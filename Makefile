@@ -6,7 +6,7 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/29 16:05:24 by cfatrane          #+#    #+#              #
-#*   Updated: 2017/01/11 19:36:40 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2017/01/11 19:59:42 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ NAME = fdf
 SRC_PATH = ./srcs/
 
 SRC_NAME =	main.c			\
+			ft_fdf.c		\
 			ft_create_map.c	\
 			ft_draw_map.c	\
 			ft_draw_cas.c	\
