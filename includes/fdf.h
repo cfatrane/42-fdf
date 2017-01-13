@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/01 10:29:16 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/13 15:38:37 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/13 16:01:18 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,11 @@ int					key_hook(int keycode, t_env *fdf);
 int					mouse_hook(int button, int x, int y, t_env *fdf);
 int					expose_hook(t_env *fdf);
 
-int					ft_draw_parall_lines(t_env *fdf);
+int					ft_draw_paral_lines(t_env *fdf);
+int					ft_draw_iso_lines(t_env *fdf);
 void				ft_bresenham_line(t_env*fdf);
-int					ft_draw_parall_collumns(t_env *fdf);
+int					ft_draw_paral_collumns(t_env *fdf);
+int					ft_draw_iso_collumns(t_env *fdf);
 void				ft_bresenham_col(t_env*fdf);
 
 #endif

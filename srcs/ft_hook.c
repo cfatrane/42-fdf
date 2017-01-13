@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/10 15:53:55 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/13 15:41:08 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/13 16:01:30 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ int	mouse_hook(int button, int x, int y, t_env *fdf)
 
 int	expose_hook(t_env *fdf)
 {
-	ft_draw_parall_collumns(fdf);
-	ft_draw_parall_lines(fdf);
+//	ft_draw_paral_collumns(fdf);
+//	ft_draw_paral_lines(fdf);
+	ft_draw_iso_collumns(fdf);
+	ft_draw_iso_lines(fdf);
+
 	return (0);
 }
