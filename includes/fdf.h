@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/01 10:29:16 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/11 20:00:44 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/13 11:48:37 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,20 @@
 # define WIN_WIDTH 1500
 # define ESC 53
 
+typedef struct	s_map
+{
+	int		**map;
+	int		x;
+	int		y;
+	int		color;
+}				t_map;
 
 typedef struct	s_env
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
-	int		**map;
+	struct	s_map	map;
+//	int		**map;
 	int		nblin;
 	int		nbcol;
 	int		win_lengh;
@@ -49,7 +57,7 @@ typedef struct	s_coord
 }				t_coord;
 
 int		ft_fdf(char *argv);
-int		ft_create_map(char *argv);
+int		ft_create_map(char *argv, t_env *fdf);
 int		ft_draw_map(t_env *fdf);
 int		ft_draw_line(t_coord *point, t_env *fdf);
 int		key_hook(int keycode, t_env *fdf);

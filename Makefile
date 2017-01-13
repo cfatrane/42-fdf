@@ -6,7 +6,7 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/29 16:05:24 by cfatrane          #+#    #+#              #
-#*   Updated: 2017/01/11 19:59:42 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2017/01/13 13:16:48 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SRC_PATH = ./srcs/
 SRC_NAME =	main.c			\
 			ft_fdf.c		\
 			ft_create_map.c	\
+			ft_bresenham.c	\
 			ft_draw_map.c	\
 			ft_draw_cas.c	\
 			ft_hook.c		\
@@ -42,12 +43,14 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
+MLX = -lmlx -framework OpenGL -framework AppKit
+
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	@make -C./libft/
 	@echo "Creation of $(NAME) ..."
-	@$(CC) $(LDFLAGS) $(LFT) $(OBJ) -o $@ -lmlx -framework OpenGL -framework AppKit
+	@$(CC) $(LDFLAGS) $(LFT) $(OBJ) -o $@ $(MLX)
 	@echo "$(NAME) created"
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c

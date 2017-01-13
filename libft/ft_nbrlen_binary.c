@@ -1,37 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fdf.c                                           :+:      :+:    :+:   */
+/*   ft_nbrlen_binary.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/05 17:17:59 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/13 12:48:26 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/01/12 11:44:13 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/01/12 11:46:31 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fdf.h"
+#include "libft.h"
 
-int		ft_fdf(char *argv)
+int	ft_nbrlen_binary(unsigned long long int nb)
 {
-	t_env	fdf;
-	int x = 0, y = 0;
+	int len;
 
-	ft_bzero(&fdf, sizeof(t_env));
-	//	ft_check(argv); PARSER OKLM
-	ft_create_map(argv, &fdf);
-/*	while(y < fdf.map.y)
-	{
-		x = 0;
-		while (x < fdf.map.x)
-		{
-			printf("%d ", fdf.map.map[x][y]);
-			x++;
-		}
-		printf("\n");
-		y++;
-	}
-*/	ft_draw_map(&fdf); // Dessiner map avec algo de Bresenham
-	free(*(fdf.map.map));
-	return (0);
+	len = 1;
+	while (nb /= 2)
+		len++;
+	return (len);
 }
