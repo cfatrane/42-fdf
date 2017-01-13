@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 12:30:08 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/13 15:39:45 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/13 19:01:40 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_bresenham_col(t_env *fdf)
 	err = (fdf->point.dx > fdf->point.dy ? fdf->point.dx : -fdf->point.dy) / 2;
 	while (1)
 	{
-		mlx_pixel_put(fdf->mlx_ptr, fdf->win_ptr, fdf->point.x1, fdf->point.y1, 0x00FFFFFF);
+		mlx_pixel_put(fdf->mlx_ptr, fdf->win_ptr, fdf->point.x1, fdf->point.y1, fdf->color.color);
 		if (fdf->point.x1 == fdf->point.x2 && fdf->point.y1 == fdf->point.y2)
 			break ;
 		e2 = err;

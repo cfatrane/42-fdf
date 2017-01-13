@@ -6,7 +6,7 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/29 16:05:24 by cfatrane          #+#    #+#              #
-#*   Updated: 2017/01/13 14:46:12 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2017/01/13 18:44:36 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRC_NAME =	main.c			\
 			ft_proj_paral.c	\
 			ft_proj_iso.c	\
 			ft_proj_con.c	\
+			ft_colors.c		\
 
 SRC = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 
