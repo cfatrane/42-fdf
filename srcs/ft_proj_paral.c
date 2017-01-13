@@ -6,85 +6,69 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/12 11:58:50 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/13 13:27:33 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/13 15:41:51 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*
+
 #include "../includes/fdf.h"
 
-double cte = 1;
-double cte1 = 1;
-double cte2 = 1;
-int pos = 10;
-
-int	ft_draw_parall_single_col(t_coord *point, t_env *fdf, int line, int col)
-{
-	while (point->y < ((fdf->nblin - 1) * 20))
-	{
-		point->x2 = point->x + (cte * (pos * fdf->map.map[line + 1][col]));
-		point->y2 = (point->y + 20) + ((cte / 2) * (pos * fdf->map.map[line + 1][col]));
-		ft_draw_line(point, fdf);
-		line++;
-		point->y += 20;
-		point->x1 = point->x2;
-		point->y1 = point->y2;
-	}
-	return (0);
-}
+double cte = 2;
+int pos = 30;
 
 int	ft_draw_parall_collumns(t_env *fdf)
 {
-	t_coord	point;
 	int		col;
 	int		line;
 
 	col = 0;
-	point.x = 0;
-	while (point.x < fdf->nbcol * 20)
+	fdf->point.x = 0;
+	while (fdf->point.x < fdf->nbcol * 20)
 	{
-		point.y = 0;
+		fdf->point.y = 0;
 		line = 0;
-		point.x1 = point.x + (cte * (pos * fdf->map.map[line][col]));
-		point.y1 = point.y + ((cte / 2) * (pos * fdf->map.map[line][col]));
-		ft_draw_parall_single_col(&point, fdf, line, col);
+		fdf->point.x1 = fdf->point.x + (cte * (pos * fdf->map.map[line][col]));
+		fdf->point.y1 = fdf->point.y + ((cte / 2) * (pos * fdf->map.map[line][col]));
+		while (fdf->point.y < ((fdf->nblin - 1) * 20))
+		{
+			fdf->point.x2 = fdf->point.x + (cte * (pos * fdf->map.map[line + 1][col]));
+			fdf->point.y2 = (fdf->point.y + 20) + ((cte / 2) * (pos * fdf->map.map[line + 1][col]));
+			ft_bresenham_col(fdf);
+			line++;
+			fdf->point.y += 20;
+			fdf->point.x1 = fdf->point.x2;
+			fdf->point.y1 = fdf->point.y2;
+		}
 		col++;
-		point.x += 20;
+		fdf->point.x += 20;
 	}
 	return (0);
 }
 
-int	ft_draw_parall_single_line(t_coord *point, t_env *fdf, int line, int col)
+int		ft_draw_parall_lines(t_env *fdf)
 {
-	while (point->x < (fdf->nbcol - 1) * 20)
-	{
-		point->x2 = (point->x + 20) + (cte * (pos * fdf->map.map[line][col + 1]));
-		point->y2 = point->y + ((cte / 2) * (pos * fdf->map.map[line][col + 1]));
-		ft_draw_line(point, fdf);
-		col++;
-		point->x += 20;
-		point->x1 = point->x2;
-		point->y1 = point->y2;
-	}
-	return (0);
-}
-
-int	ft_draw_parall_lines(t_env *fdf)
-{
-	t_coord	point;
 	int		col;
 	int		line;
 
 	line = 0;
-	point.y = 0;
-	while (point.y < fdf->nblin * 20)
+	fdf->point.y = 0;
+	while (fdf->point.y < fdf->nblin * 20)
 	{
 		col = 0;
-		point.x = 0;
-		point.x1 = point.x + (cte * (pos * fdf->map.map[line][col]));
-		point.y1 = point.y + ((cte / 2) * (pos * fdf->map.map[line][col]));
-		ft_draw_parall_single_line(&point, fdf, line,col);
+		fdf->point.x = 0;
+		fdf->point.x1 = fdf->point.x + (cte * (pos * fdf->map.map[line][col]));
+		fdf->point.y1 = fdf->point.y + ((cte / 2) * (pos * fdf->map.map[line][col]));
+		while (fdf->point.x < (fdf->nbcol - 1) * 20)
+		{
+			fdf->point.x2 = (fdf->point.x + 20) + (cte * (pos * fdf->map.map[line][col + 1]));
+			fdf->point.y2 = fdf->point.y + ((cte / 2) * (pos * fdf->map.map[line][col + 1]));
+			ft_bresenham_line(fdf);
+			col++;
+			fdf->point.x += 20;
+			fdf->point.x1 = fdf->point.x2;
+			fdf->point.y1 = fdf->point.y2;
+		}
 		line++;
-		point.y += 20;
+		fdf->point.y += 20;
 	}
 	return (0);
-}*/
+}

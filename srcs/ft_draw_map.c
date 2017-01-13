@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/05 18:32:44 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/11 20:14:16 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/13 15:40:36 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ int	ft_draw_map(t_env *fdf)
 //	mlx_mouse_hook (fdf->win_ptr, int (*funct_ptr)(), void *param );
 	mlx_expose_hook(fdf->win_ptr, expose_hook, fdf);
 	mlx_hook(fdf->win_ptr, 17, 1L << 17, destroy, fdf);
-;	mlx_loop(fdf->mlx_ptr);
+	mlx_loop(fdf->mlx_ptr);
 	return (0);
 }

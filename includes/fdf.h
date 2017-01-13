@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/01 10:29:16 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/13 14:36:56 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/13 15:38:37 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,29 +41,35 @@ typedef struct	s_point
 	int		y1;
 	int		x2;
 	int		y2;
+	int		dx;
+	int		sx;
+	int		dy;
+	int		sy;
 }				t_point;
 
 typedef struct	s_env
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
+	void			*mlx_ptr;
+	void			*win_ptr;
 	struct s_map	map;
 	struct s_point	point;
-//	int		**map;
-	int		nblin;
-	int		nbcol;
-	int		win_lengh;
-	int		win_width;
-}				t_env;
+	int				nblin;
+	int				nbcol;
+	int				win_lengh;
+	int				win_width;
+}					t_env;
 
-int		ft_fdf(char *argv);
-int		ft_create_map(char *argv, t_env *fdf);
-int		ft_draw_map(t_env *fdf);
-//int		ft_draw_line(t_coord *point, t_env *fdf);
-int		key_hook(int keycode, t_env *fdf);
-int		mouse_hook(int button, int x, int y, t_env *fdf);
-int		expose_hook(t_env *fdf);
-int		ft_draw_parall_lines(t_env *fdf);
-int		ft_draw_parall_collumns(t_env *fdf);
+int					ft_fdf(char *argv);
+int					ft_create_map(char *argv, t_env *fdf);
+int					ft_draw_map(t_env *fdf);
+
+int					key_hook(int keycode, t_env *fdf);
+int					mouse_hook(int button, int x, int y, t_env *fdf);
+int					expose_hook(t_env *fdf);
+
+int					ft_draw_parall_lines(t_env *fdf);
+void				ft_bresenham_line(t_env*fdf);
+int					ft_draw_parall_collumns(t_env *fdf);
+void				ft_bresenham_col(t_env*fdf);
 
 #endif
