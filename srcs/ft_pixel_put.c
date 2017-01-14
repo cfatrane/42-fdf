@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_colors.c                                        :+:      :+:    :+:   */
+/*   ft_pixel_put.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/13 18:18:53 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/14 12:55:30 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/01/14 17:06:37 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/01/14 18:23:27 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-void	ft_mlx_key_hook_color(int keycode, t_env *fdf)
+void	ft_pixel_put(t_env *fdf, int x, int y)
 {
-	fdf->color.color = fdf->color.red * 65536 + fdf->color.green * 256 + fdf->color.blue;
-	if (keycode == R)
-		fdf->color.red += 10;
-	if (keycode == G)
-		fdf->color.green += 10;
-	if (keycode == B)
-		fdf->color.blue += 10;
+	fdf->data[(x * (fdf->bpp / 8)) + (y * fdf->size_line)] = fdf->color.red;
+	fdf->data[(x * (fdf->bpp / 8)) + (y * fdf->size_line) + 1] = fdf->color.green;
+	fdf->data[(x * (fdf->bpp / 8)) + (y * fdf->size_line) + 2] = fdf->color.blue;
 }

@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/12 11:58:58 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/13 16:06:31 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/14 13:31:26 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_draw_iso_collumns(t_env *fdf)
 		{
 			fdf->point.x2 = cte1 * fdf->point.x - cte2 * fdf->point.y;
 			fdf->point.y2 = (pos_iso * fdf->map.map[line + 1][col]) + (cte1 / 2) * fdf->point.x + (cte2 / 2) * (fdf->point.y + 20);
-			ft_bresenham_col(fdf);
+			ft_bresenham(fdf);
 			line++;
 			fdf->point.y += 20;
 			fdf->point.x1 = fdf->point.x2;
@@ -62,7 +62,7 @@ int		ft_draw_iso_lines(t_env *fdf)
 		{
 			fdf->point.x2 = cte1 * (fdf->point.x + 20)- cte2 * fdf->point.y;
 			fdf->point.y2 = (pos_iso * fdf->map.map[line][col + 1]) + (cte1 / 2) * fdf->point.x + (cte2 / 2) * (fdf->point.y + 20);
-			ft_bresenham_line(fdf);
+			ft_bresenham(fdf);
 			col++;
 			fdf->point.x += 20;
 			fdf->point.x1 = fdf->point.x2;
