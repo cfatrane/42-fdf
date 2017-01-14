@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/05 15:50:15 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/14 20:03:31 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/14 23:16:57 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ int		ft_count(char *argv, t_env *fdf)
 	if (fd == -1)
 		return (-1);
 	get_next_line(fd, &line);
-	fdf->nblin++;
-	fdf->nbcol = ft_count_words_sep(line, ' ');
+	fdf->map.nblin++;
+	fdf->map.nbcol = ft_count_words_sep(line, ' ');
 	free(line);
 	while (get_next_line(fd, &line))
 	{
 		free(line);
-		fdf->nblin++;
+		fdf->map.nblin++;
 	}
 	if ((close(fd)) == -1)
 		return (-1);
@@ -39,7 +39,7 @@ int		ft_fill_map(int fd, t_env *fdf)
 	char	*line;
 	char	**split_line;
 
-	fdf->map.map = ft_createtab(fdf->nblin, fdf->nbcol);
+	fdf->map.map = ft_createtab(fdf->map.nblin, fdf->map.nbcol);
 	while (get_next_line(fd, &line))
 	{
 		fdf->map.y = 0;
@@ -50,6 +50,9 @@ int		ft_fill_map(int fd, t_env *fdf)
 			free(split_line[fdf->map.y]);
 			fdf->map.y++;
 		}
+		fdf->map.max = ft_max(fdf->map.map[fdf->map.x], fdf->map.nblin);
+		if (fdf->map.max > fdf->map.pad)
+			fdf->map.pad = fdf->map.max;
 		free(split_line);
 		free(line);
 		fdf->map.x++;

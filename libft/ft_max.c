@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fdf.c                                           :+:      :+:    :+:   */
+/*   ft_max.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/05 17:17:59 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/14 22:04:38 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/01/14 22:31:38 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/01/14 22:53:23 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fdf.h"
+#include "libft.h"
 
-int		ft_fdf(char *argv)
+int	ft_max(int *tab, unsigned int len)
 {
-	t_env	fdf;
+	unsigned int	i;
+	int				max;
 
-	ft_bzero(&fdf, sizeof(t_env));
-	//	ft_check(argv); PARSER OKLM
-	ft_create_map(argv, &fdf);
-	ft_mlx(&fdf); // Dessiner map avec algo de Bresenham
-	free(*(fdf.map.map));
-	return (0);
+	if (len == 0)
+		return (0);
+	i = 1;
+	max = *tab;
+	while (i != len)
+	{
+		if (max < *(tab + i))
+			max = *(tab + i);
+		i++;
+	}
+	return (max);
 }

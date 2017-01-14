@@ -6,37 +6,29 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/10 15:53:55 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/14 20:49:56 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/14 23:27:48 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-int	key_hook(int keycode, t_env *fdf)
+int	ft_key_hook(int keycode, t_env *fdf)
 {
 	if (keycode == ESC)
 		exit(0);
 	else if (keycode == R || keycode == B || keycode == G)
-		ft_mlx_key_hook_color(keycode, fdf);
+		ft_key_hook_color(keycode, fdf);
 	else if (keycode == MORE)
 		fdf->point.cte += 0.1;
 	else if (keycode == LESS)
 		fdf->point.cte -= 0.1;
-	else if (keycode == P)
-		fdf->point.mv_l_r += 15;
-	else if (keycode == O)
-		fdf->point.mv_l_r -= 15;
-/*	else if (keycode == LEFT_ARROW)
-
-	else if (keycode == RIGHT_ARROW)
-	
-	else if (keycode == DOWN_ARROW)
-	
-	else if (keycode == UP_ARROW)
-*/	mlx_clear_window(fdf->mlx_ptr, fdf->win_ptr);
+	else if (keycode == RIGHT_ARROW || keycode == LEFT_ARROW || keycode == DOWN_ARROW ||
+			keycode == UP_ARROW)
+		ft_key_hook_move(keycode, fdf);
+	mlx_clear_window(fdf->mlx_ptr, fdf->win_ptr);
 //	mlx_destroy_image(fdf->mlx_ptr, fdf->img_ptr);
 	expose_hook(fdf);
-	printf("keycode = %d\n", keycode);
+//	printf("keycode = %d\n", keycode);
 //	printf("color = %#X\n", fdf->color.color);
 	return (0);
 }

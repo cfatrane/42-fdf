@@ -6,7 +6,7 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/29 16:05:24 by cfatrane          #+#    #+#              #
-#*   Updated: 2017/01/14 20:49:27 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2017/01/14 21:58:14 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,18 +14,19 @@ NAME = fdf
 
 SRC_PATH = ./srcs/
 
-SRC_NAME =	main.c			\
-			ft_fdf.c		\
-			ft_create_map.c	\
-			ft_bresenham.c	\
-			ft_draw_map.c	\
-			ft_hook.c		\
-			ft_proj_paral.c	\
-			ft_proj_iso.c	\
-			ft_proj_con.c	\
-			ft_colors.c		\
-			ft_pixel_put.c	\
-			ft_proj.c		\
+SRC_NAME =	main.c					\
+			ft_fdf.c				\
+			ft_create_map.c			\
+			ft_mlx.c				\
+			ft_bresenham.c			\
+			ft_pixel_put.c			\
+			ft_proj_paral.c			\
+			ft_proj_iso.c			\
+			ft_proj_con.c			\
+			ft_proj.c				\
+			ft_hook.c				\
+			ft_key_hook_move.c		\
+			ft_key_hook_color.c		\
 
 SRC = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 

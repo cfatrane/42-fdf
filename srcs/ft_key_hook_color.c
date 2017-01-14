@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fdf.c                                           :+:      :+:    :+:   */
+/*   ft_key_hook_color.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/05 17:17:59 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/14 22:04:38 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/01/14 21:56:51 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/01/14 21:56:53 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-int		ft_fdf(char *argv)
+void	ft_key_hook_color(int keycode, t_env *fdf)
 {
-	t_env	fdf;
-
-	ft_bzero(&fdf, sizeof(t_env));
-	//	ft_check(argv); PARSER OKLM
-	ft_create_map(argv, &fdf);
-	ft_mlx(&fdf); // Dessiner map avec algo de Bresenham
-	free(*(fdf.map.map));
-	return (0);
+	if (keycode == R)
+		fdf->color.red += 10;
+	if (keycode == G)
+		fdf->color.green += 10;
+	if (keycode == B)
+		fdf->color.blue += 10;
 }

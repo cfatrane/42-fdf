@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fdf.c                                           :+:      :+:    :+:   */
+/*   ft_key_hook_move.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/05 17:17:59 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/14 22:04:38 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/01/14 21:00:43 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/01/14 21:01:29 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-int		ft_fdf(char *argv)
+void	ft_key_hook_move(int keycode, t_env *fdf)
 {
-	t_env	fdf;
-
-	ft_bzero(&fdf, sizeof(t_env));
-	//	ft_check(argv); PARSER OKLM
-	ft_create_map(argv, &fdf);
-	ft_mlx(&fdf); // Dessiner map avec algo de Bresenham
-	free(*(fdf.map.map));
-	return (0);
+	if (keycode == RIGHT_ARROW)
+		fdf->point.mv_l_r += 15;
+	else if (keycode == LEFT_ARROW)
+		fdf->point.mv_l_r -= 15;
+	else if (keycode == DOWN_ARROW)
+		fdf->point.mv_d_u += 15;
+	else if (keycode == UP_ARROW)
+		fdf->point.mv_d_u -= 15;
 }

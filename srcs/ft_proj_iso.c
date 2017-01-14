@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/12 11:58:58 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/14 13:31:26 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/14 22:03:07 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ int	ft_draw_iso_collumns(t_env *fdf)
 
 	col = 0;
 	fdf->point.x = 0;
-	while (fdf->point.x < fdf->nbcol * 20)
+	while (fdf->point.x < fdf->map.nbcol * 20)
 	{
 		fdf->point.y = 0;
 		line = 0;
 		fdf->point.x1 = cte1 * fdf->point.x - cte2 * fdf->point.y;
 		fdf->point.y1 = (pos_iso * fdf->map.map[line][col]) + (cte1 / 2) * fdf->point.x + (cte2 / 2) * fdf->point.y;
-		while (fdf->point.y < ((fdf->nblin - 1) * 20))
+		while (fdf->point.y < ((fdf->map.nblin - 1) * 20))
 		{
 			fdf->point.x2 = cte1 * fdf->point.x - cte2 * fdf->point.y;
 			fdf->point.y2 = (pos_iso * fdf->map.map[line + 1][col]) + (cte1 / 2) * fdf->point.x + (cte2 / 2) * (fdf->point.y + 20);
@@ -52,13 +52,13 @@ int		ft_draw_iso_lines(t_env *fdf)
 
 	line = 0;
 	fdf->point.y = 0;
-	while (fdf->point.y < fdf->nblin * 20)
+	while (fdf->point.y < fdf->map.nblin * 20)
 	{
 		col = 0;
 		fdf->point.x = 0;
 		fdf->point.x1 = cte1 * fdf->point.x - cte2 * fdf->point.y;
 		fdf->point.y1 = (pos_iso * fdf->map.map[line][col]) + (cte1 / 2) * fdf->point.x + (cte2 / 2) * fdf->point.y;
-		while (fdf->point.x < (fdf->nbcol - 1) * 20)
+		while (fdf->point.x < (fdf->map.nbcol - 1) * 20)
 		{
 			fdf->point.x2 = cte1 * (fdf->point.x + 20)- cte2 * fdf->point.y;
 			fdf->point.y2 = (pos_iso * fdf->map.map[line][col + 1]) + (cte1 / 2) * fdf->point.x + (cte2 / 2) * (fdf->point.y + 20);
