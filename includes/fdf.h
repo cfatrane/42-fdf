@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/01 10:29:16 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/14 22:01:38 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/15 00:05:31 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,6 @@
 # include <fcntl.h>
 # include <math.h>
 # include <mlx.h>
-
-# define WIN_LENGHT 1000
-# define WIN_WIDTH 1000
 
 # define WHITE 0xFFFFFF
 

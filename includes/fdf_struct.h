@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/14 22:01:07 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/14 23:07:21 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/15 00:14:44 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ typedef struct		s_point
 	int				sx;
 	int				dy;
 	int				sy;
+	int				err;
+	int				e2;
 	double			cte;
 	int				pos;
 	int				mv_l_r;
