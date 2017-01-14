@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_colors.c                                        :+:      :+:    :+:   */
+/*   ft_parser.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/13 18:18:53 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/14 20:50:25 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/01/14 20:02:26 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/01/14 20:03:47 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-void	ft_mlx_key_hook_color(int keycode, t_env *fdf)
+int	ft_parser(char *argv)
 {
-	if (keycode == R)
-		fdf->color.red += 10;
-	if (keycode == G)
-		fdf->color.green += 10;
-	if (keycode == B)
-		fdf->color.blue += 10;
+	char	*line;
+	int		fd;
+
+	fd = (open(argv, O_RDONLY));
+	if (fd == -1)
+		return (-1);
+
+
+	return (0);
 }

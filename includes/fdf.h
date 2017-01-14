@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/01 10:29:16 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/14 18:03:51 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/14 20:49:32 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,27 @@
 # include <math.h>
 # include <mlx.h>
 
-# define WIN_LENGHT 500
-# define WIN_WIDTH 500
+# define WIN_LENGHT 1000
+# define WIN_WIDTH 1000
+
 # define ESC 53
+# define A 0
+# define B 11
+# define C 8
+# define D 2
+# define E 4
+# define G 9
+# define O 31
+# define P 35
+# define R 15
+
 # define LESS 78
 # define MORE 69
-# define C 8
-# define R 15
-# define G 9
-# define B 11
-# define P 35
+
+# define LEFT_ARROW 123
+# define RIGHT_ARROW 124
+# define DOWN_ARROW 125
+# define UP_ARROW 126
 
 // White RGB code = 255*65536+255*256+255 = #FFFFFF
 
@@ -63,6 +74,12 @@ typedef struct		s_point
 	int				sy;
 	double			cte;
 	int				pos;
+	int				mv_l_r;
+	int				mv_d_u;
+	int				mv_left;
+	int				mv_right;
+	int				mv_up;
+	int				mv_down;
 }					t_point;
 
 typedef struct		s_color
@@ -104,6 +121,8 @@ int					expose_hook(t_env *fdf);
 
 void				ft_bresenham(t_env*fdf);
 void				ft_pixel_put(t_env *fdf, int x, int y);
+
+void				ft_proj(t_env *fdf);
 
 int					ft_draw_paral_lines(t_env *fdf);
 int					ft_draw_iso_lines(t_env *fdf);

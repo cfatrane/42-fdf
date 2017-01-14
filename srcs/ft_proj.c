@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_colors.c                                        :+:      :+:    :+:   */
+/*   ft_proj.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/13 18:18:53 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/14 20:50:25 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/01/14 20:11:42 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/01/14 20:42:17 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-void	ft_mlx_key_hook_color(int keycode, t_env *fdf)
+void	ft_proj(t_env *fdf)
 {
-	if (keycode == R)
-		fdf->color.red += 10;
-	if (keycode == G)
-		fdf->color.green += 10;
-	if (keycode == B)
-		fdf->color.blue += 10;
+	fdf->img_ptr = mlx_new_image(fdf->mlx_ptr,  WIN_LENGHT, WIN_WIDTH);
+	fdf->data = mlx_get_data_addr(fdf->img_ptr, &fdf->bpp, &fdf->size_line, &fdf->endian);
+	ft_draw_paral_collumns(fdf);
+	ft_draw_paral_lines(fdf);
+	mlx_put_image_to_window (fdf->mlx_ptr, fdf->win_ptr, fdf->img_ptr, 0, 0);
+//	mlx_destroy_image(fdf->mlx_ptr, fdf->img_ptr);
 }

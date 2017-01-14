@@ -6,12 +6,11 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/05 15:50:15 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/13 12:50:10 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/14 20:03:31 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
-#include <stdio.h>
 
 int		ft_count(char *argv, t_env *fdf)
 {
@@ -67,7 +66,6 @@ int		ft_create_map(char *argv, t_env *fdf)
 	if (fd == -1)
 		return (-1);
 	ft_fill_map(fd, fdf);
-//	ft_draw_map(fdf); // Dessiner map avec algo de Bresenham
 	if ((close(fd)) == -1)
 		return (-1);
 	return (0);

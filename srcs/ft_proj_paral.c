@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/12 11:58:50 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/14 18:44:10 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/14 20:05:37 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_draw_paral_collumns(t_env *fdf)
 			fdf->point.x2 = fdf->point.x + (fdf->point.cte * (pos_paral * fdf->map.map[line + 1][col]));
 			fdf->point.y2 = (fdf->point.y + 20) + ((fdf->point.cte / 2) * (pos_paral * fdf->map.map[line + 1][col]));
 			ft_bresenham(fdf);
-			mlx_put_image_to_window(fdf->mlx_ptr, fdf->win_ptr, fdf->img_ptr, 0, 0);
+		//	mlx_put_image_to_window (fdf->mlx_ptr, fdf->win_ptr, fdf->img_ptr, 0, 0);
 			line++;
 			fdf->point.y += 20;
 			fdf->point.x1 = fdf->point.x2;
@@ -62,7 +62,7 @@ int		ft_draw_paral_lines(t_env *fdf)
 			fdf->point.x2 = (fdf->point.x + 20) + (fdf->point.cte * (pos_paral * fdf->map.map[line][col + 1]));
 			fdf->point.y2 = fdf->point.y + ((fdf->point.cte / 2) * (pos_paral * fdf->map.map[line][col + 1]));
 			ft_bresenham(fdf);
-			mlx_put_image_to_window(fdf->mlx_ptr, fdf->win_ptr, fdf->img_ptr, 0, 0);
+		//	mlx_put_image_to_window (fdf->mlx_ptr, fdf->win_ptr, fdf->img_ptr, 0, 0);
 			col++;
 			fdf->point.x += 20;
 			fdf->point.x1 = fdf->point.x2;
