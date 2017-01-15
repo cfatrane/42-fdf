@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/14 21:45:54 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/14 21:51:59 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/15 20:15:08 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,16 @@
 # define Y 16
 # define Z 6
 
+# define ONE_NUM_PAD 83
+# define TWO_NUM_PAD 84
+# define THREE_NUM_PAD 85
+# define FOUR_NUM_PAD 86
+# define FIVE_NUM_PAD 87
+# define SIX_NUM_PAD 88
+# define SEVEN_NUM_PAD 89
+# define EIGHT_NUM_PAD 91
+# define NINE_NUM_PAD 92
+
 # define LESS 78
 # define MORE 69
 
@@ -49,5 +59,7 @@
 # define RIGHT_ARROW 124
 # define DOWN_ARROW 125
 # define UP_ARROW 126
+
+# define ARROW 123 || 124 || 125 || 126
 
 #endif

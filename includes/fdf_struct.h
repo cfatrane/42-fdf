@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/14 22:01:07 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/15 00:14:44 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/15 20:20:35 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,17 @@ typedef struct		s_point
 	int				err;
 	int				e2;
 	double			cte;
+	double			cte1;
+	double			cte2;
 	int				pos;
-	int				mv_l_r;
-	int				mv_d_u;
+	int	spc;
 }					t_point;
+
+typedef struct		s_mov
+{
+	int				l_r;
+	int				d_u;
+}					t_mov;
 
 typedef struct		s_color
 {
@@ -66,9 +73,11 @@ typedef struct		s_env
 	int				endian;
 	int				win_lengh;
 	int				win_width;
+	int				keycode;
 	struct s_color	color;
 	struct s_map	map;
 	struct s_point	point;
+	struct s_mov	mov;
 }					t_env;
 
 #endif
