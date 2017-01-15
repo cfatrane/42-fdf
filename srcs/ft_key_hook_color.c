@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/14 21:56:51 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/15 17:45:42 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/15 21:58:05 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	ft_key_hook_color(int keycode, t_env *fdf)
 {
 	if (keycode == R)
-		fdf->color.red += 10;
+		fdf->color.red -= 10;
 	if (keycode == G)
-		fdf->color.green += 10;
+		fdf->color.green -= 10;
 	if (keycode == B)
-		fdf->color.blue += 10;
+		fdf->color.blue -= 10;
 }
