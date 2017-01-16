@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/14 21:54:45 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/15 22:11:44 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/16 16:33:59 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ int	ft_mlx(t_env *fdf)
 */	fdf->win_ptr = mlx_new_window(fdf->mlx_ptr, fdf->win_lengh, fdf->win_width, "fdf");
 //	fdf->data = mlx_get_data_addr(fdf->img_ptr, &fdf->bpp, &fdf->size_line, &fdf->endian);
 	mlx_key_hook(fdf->win_ptr, ft_key_hook_paral, fdf);
-//	mlx_key_hook(fdf->win_ptr, ft_key_hook_iso, fdf);
 //	mlx_expose_hook(fdf->win_ptr, ft_expose_hook_paral, fdf);
 	mlx_expose_hook(fdf->win_ptr, ft_expose_hook_iso, fdf);
+//	mlx_key_hook(fdf->win_ptr, ft_key_hook_iso, fdf);
 	mlx_loop(fdf->mlx_ptr);
 	return (0);
 }

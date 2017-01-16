@@ -1,18 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isxdigit.c                                      :+:      :+:    :+:   */
+/*   ft_hex_to_dec.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/12 18:10:18 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/16 14:54:21 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/01/16 15:02:06 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/01/16 15:31:45 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isxdigit(int c)
+int	ft_hex_to_dec(char *hex)
 {
-	return (ft_isdigit(c) || ft_islowhexa(c) || ft_isupphexa(c));
+	int		dec;
+	int		temp;
+
+	dec = 0;
+	temp = 0;
+	while (*hex != '\0')
+	{
+		if (ft_islowhexa(*hex))
+			temp = *hex - 'a' + 10;
+		else if (ft_isupphexa(*hex))
+			temp = *hex - 'A' + 10;
+		else if (ft_isdigit(*hex))
+			temp = *hex - '0';
+		dec = dec * 16 + temp;
+		hex++;
+	}
+	return (dec);
 }

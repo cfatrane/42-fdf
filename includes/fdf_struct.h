@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/14 22:01:07 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/15 20:20:35 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/16 14:16:36 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ typedef struct		s_point
 	double			cte1;
 	double			cte2;
 	int				pos;
-	int	spc;
+	int				spc;
 }					t_point;
 
 typedef struct		s_mov

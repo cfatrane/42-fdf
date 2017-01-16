@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/10 15:53:55 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/15 22:05:07 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/16 16:48:35 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,26 +19,30 @@ int	ft_key_hook_paral(int keycode, t_env *fdf)
 		exit(0);
 	else if (keycode == R || keycode == B || keycode == G)
 		ft_key_hook_color(keycode, fdf);
+	else if (keycode == RIGHT_ARROW || keycode == LEFT_ARROW || keycode == DOWN_ARROW ||
+			keycode == UP_ARROW)
+		ft_key_hook_move(keycode, fdf);
 	else if (keycode == MORE)
 	{
 		fdf->point.cte += 0.3;
-		fdf->point.cte1 += 0.1;
-		fdf->point.cte2 += 0.1;
+		fdf->point.pos += 5;
 	}
 	else if (keycode == LESS)
 	{
 		fdf->point.cte -= 0.3;
+		fdf->point.pos -= 5;
+	}
+	else if (keycode == A)
+	{
+		fdf->point.cte1 += 0.1;
+		fdf->point.cte2 += 0.1;
+	}
+		else if (keycode == Q)
+	{
 		fdf->point.cte1 -= 0.1;
 		fdf->point.cte2 -= 0.1;
 	}
-	else if (keycode == A)
-		fdf->point.pos += 1;
-	else if (keycode == Q)
-		fdf->point.pos -= 1;
 	//		else if (keycode == ARROW)
-	else if (keycode == RIGHT_ARROW || keycode == LEFT_ARROW || keycode == DOWN_ARROW ||
-			keycode == UP_ARROW)
-		ft_key_hook_move(keycode, fdf);
 	else if (keycode == ONE_NUM_PAD)
 	{
 		fdf->point.spc -= 5;
@@ -51,7 +55,7 @@ int	ft_key_hook_paral(int keycode, t_env *fdf)
 	{
 		mlx_loop_hook(fdf->mlx_ptr, ft_loop_mov, fdf);
 	}
-//	ft_expose_hook_paral(fdf);
+	//	ft_expose_hook_paral(fdf);
 	ft_expose_hook_iso(fdf);
 	return (0);
 }

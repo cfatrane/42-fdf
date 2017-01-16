@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/05 15:50:15 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/14 23:16:57 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/16 17:29:09 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,20 +42,20 @@ int		ft_fill_map(int fd, t_env *fdf)
 	fdf->map.map = ft_createtab(fdf->map.nblin, fdf->map.nbcol);
 	while (get_next_line(fd, &line))
 	{
-		fdf->map.y = 0;
+		fdf->map.x = 0;
 		split_line = ft_strsplit(line, ' ');
-		while (split_line[fdf->map.y] != NULL)
+		while (split_line[fdf->map.x] != NULL)
 		{
-			fdf->map.map[fdf->map.x][fdf->map.y] = ft_atoi(split_line[fdf->map.y]);
-			free(split_line[fdf->map.y]);
-			fdf->map.y++;
+			fdf->map.map[fdf->map.y][fdf->map.x] = ft_atoi(split_line[fdf->map.x]);
+			free(split_line[fdf->map.x]);
+			fdf->map.x++;
 		}
-		fdf->map.max = ft_max(fdf->map.map[fdf->map.x], fdf->map.nblin);
+		fdf->map.max = ft_max(fdf->map.map[fdf->map.y], fdf->map.nblin);
 		if (fdf->map.max > fdf->map.pad)
 			fdf->map.pad = fdf->map.max;
 		free(split_line);
 		free(line);
-		fdf->map.x++;
+		fdf->map.y++;
 	}
 	return (0);
 }
