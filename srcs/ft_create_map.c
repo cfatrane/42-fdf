@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/05 15:50:15 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/16 20:03:07 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/16 20:06:59 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int		ft_fill_map(int fd, t_env *fdf)
 	char	**split_line;
 
 	int i =0;
-	int y =0;
+	int color;
 	fdf->map.map = ft_createtab(fdf->map.nblin, fdf->map.nbcol);
 	while (get_next_line(fd, &line))
 	{
@@ -63,14 +63,15 @@ int		ft_fill_map(int fd, t_env *fdf)
 		split_line = ft_strsplit(line, ' ');
 		while (split_line[fdf->map.x] != NULL)
 		{
-			printf("line = %s |\n", split_line[fdf->map.x]);
+		//	printf("line = %s |\n", split_line[fdf->map.x]);
 			while(split_line[fdf->map.x][i])
 			{
 				if (split_line[fdf->map.x][i] == ',')
 				{
 					i++;
-					printf("||%s||", ft_strdup_c(split_line[fdf->map.x] +i, ' '));
-				//	printf("VIRGULE = ");
+					color = ft_hex_to_dec(ft_strdup_c(split_line[fdf->map.x] +i, ' '));
+				printf("color = %d", color);
+					//	printf("VIRGULE = ");
 				}
 			//	printf("char = %c |", split_line[fdf->map.x][i]);
 				i++;
