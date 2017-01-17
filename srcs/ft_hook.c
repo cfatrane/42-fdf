@@ -6,14 +6,14 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/10 15:53:55 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/16 16:48:35 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/17 17:34:32 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
 int	ft_loop_mov(t_env *fdf);
-int	ft_key_hook_paral(int keycode, t_env *fdf)
+int	ft_key_hook(int keycode, t_env *fdf)
 {
 	if (keycode == ESC)
 		exit(0);
@@ -55,8 +55,8 @@ int	ft_key_hook_paral(int keycode, t_env *fdf)
 	{
 		mlx_loop_hook(fdf->mlx_ptr, ft_loop_mov, fdf);
 	}
-	//	ft_expose_hook_paral(fdf);
-	ft_expose_hook_iso(fdf);
+	ft_expose_hook(fdf);
+//	ft_expose_hook_iso(fdf);
 	return (0);
 }
 
@@ -76,23 +76,12 @@ int	ft_mouse_hook(int button, int x, int y, t_env *fdf)
 	return (0);
 }
 
-int	ft_expose_hook_iso(t_env *fdf)
+int	ft_expose_hook(t_env *fdf)
 {
 	fdf->img_ptr = mlx_new_image(fdf->mlx_ptr,fdf->win_lengh, fdf->win_width);
 	fdf->data = mlx_get_data_addr(fdf->img_ptr, &fdf->bpp, &fdf->size_line, &fdf->endian);
-	ft_draw_iso_collumns(fdf);
-	ft_draw_iso_lines(fdf);
-	mlx_put_image_to_window (fdf->mlx_ptr, fdf->win_ptr, fdf->img_ptr, 0, 0);
-	mlx_destroy_image(fdf->mlx_ptr, fdf->img_ptr);
-	return (0);
-}
-
-int	ft_expose_hook_paral(t_env *fdf)
-{
-	fdf->img_ptr = mlx_new_image(fdf->mlx_ptr,fdf->win_lengh, fdf->win_width);
-	fdf->data = mlx_get_data_addr(fdf->img_ptr, &fdf->bpp, &fdf->size_line, &fdf->endian);
-	ft_draw_paral_collumns(fdf);
-	ft_draw_paral_lines(fdf);
+	ft_draw_collumns(fdf);
+	ft_draw_lines(fdf);
 	mlx_put_image_to_window (fdf->mlx_ptr, fdf->win_ptr, fdf->img_ptr, 0, 0);
 	mlx_destroy_image(fdf->mlx_ptr, fdf->img_ptr);
 	return (0);

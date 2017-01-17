@@ -6,7 +6,7 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/29 16:05:24 by cfatrane          #+#    #+#              #
-#*   Updated: 2017/01/15 22:38:53 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2017/01/17 17:33:33 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,7 @@ SRC_NAME =	main.c					\
 			ft_mlx.c				\
 			ft_bresenham.c			\
 			ft_pixel_put.c			\
-			ft_proj_paral.c			\
-			ft_proj_iso.c			\
-			ft_proj_con.c			\
+			ft_draw.c				\
 			ft_proj.c				\
 			ft_hook.c				\
 			ft_key_hook_move.c		\

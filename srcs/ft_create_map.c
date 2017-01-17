@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/05 15:50:15 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/16 20:06:59 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/16 17:29:09 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,28 +34,11 @@ int		ft_count(char *argv, t_env *fdf)
 	return (0);
 }
 
-int		ft_take_color(char*str)
-{
-	int	i;
-	char	*color;
-	i = 0;
-	while(str[i])
-	{
-		color[i] = str[i];
-		i++;
-	}
-	color[i] = '\0';
-	printf("color = %s", color);
-	return (0);
-}
-
 int		ft_fill_map(int fd, t_env *fdf)
 {
 	char	*line;
 	char	**split_line;
 
-	int i =0;
-	int color;
 	fdf->map.map = ft_createtab(fdf->map.nblin, fdf->map.nbcol);
 	while (get_next_line(fd, &line))
 	{
@@ -63,27 +46,10 @@ int		ft_fill_map(int fd, t_env *fdf)
 		split_line = ft_strsplit(line, ' ');
 		while (split_line[fdf->map.x] != NULL)
 		{
-		//	printf("line = %s |\n", split_line[fdf->map.x]);
-			while(split_line[fdf->map.x][i])
-			{
-				if (split_line[fdf->map.x][i] == ',')
-				{
-					i++;
-					color = ft_hex_to_dec(ft_strdup_c(split_line[fdf->map.x] +i, ' '));
-				printf("color = %d", color);
-					//	printf("VIRGULE = ");
-				}
-			//	printf("char = %c |", split_line[fdf->map.x][i]);
-				i++;
-			}
-			printf("\n");
-			i = 0;
-			//	printf("char = %c |", split_line[3][i]);
 			fdf->map.map[fdf->map.y][fdf->map.x] = ft_atoi(split_line[fdf->map.x]);
 			free(split_line[fdf->map.x]);
 			fdf->map.x++;
 		}
-		printf("return\n");
 		fdf->map.max = ft_max(fdf->map.map[fdf->map.y], fdf->map.nblin);
 		if (fdf->map.max > fdf->map.pad)
 			fdf->map.pad = fdf->map.max;
