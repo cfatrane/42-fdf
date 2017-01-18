@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/14 22:01:07 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/17 17:10:53 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/18 13:59:32 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ typedef struct		s_point
 	double			cte1;
 	double			cte2;
 	int				pos;
-	int				spc;
+	double			spc;
 }					t_point;
 
 typedef struct		s_mov
@@ -71,9 +71,10 @@ typedef struct		s_env
 	int				bpp;
 	int				size_line;
 	int				endian;
-	int				win_lengh;
+	int				win_length;
 	int				win_width;
 	int				keycode;
+	int				proj;
 	struct s_color	color;
 	struct s_map	map;
 	struct s_point	point;

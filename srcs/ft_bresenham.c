@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/07 12:30:08 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/17 16:57:17 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/18 15:31:16 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,16 @@
 
 void	ft_bresenham(t_env *fdf)
 {
-	fdf->point.dx = DX;
-	fdf->point.sx = SX;
-	fdf->point.dy = DY;
-	fdf->point.sy = SY;
-	fdf->point.err = ERR;
+	fdf->point.dx = (abs(fdf->point.x2 - fdf->point.x1));
+	fdf->point.sx = (fdf->point.x1 < fdf->point.x2 ? 1 : -1);
+	fdf->point.dy = (abs(fdf->point.y2 - fdf->point.y1));
+	fdf->point.sy = (fdf->point.y1 < fdf->point.y2 ? 1 : -1);
+	fdf->point.err = (fdf->point.dx > fdf->point.dy ?
+			fdf->point.dx : -fdf->point.dy) / 2;
 	while (1)
 	{
-		if (fdf->mov.l_r + fdf->point.x1 >= 0 && fdf->mov.d_u + fdf->point.y1 >= 0)
-			ft_pixel_put(fdf, fdf->mov.l_r + fdf->point.x1, fdf->mov.d_u + fdf->point.y1);
+		ft_pixel_put(fdf, fdf->mov.l_r + fdf->point.x1,
+					fdf->mov.d_u + fdf->point.y1);
 		if (fdf->point.x1 == fdf->point.x2 && fdf->point.y1 == fdf->point.y2)
 			break ;
 		fdf->point.e2 = fdf->point.err;

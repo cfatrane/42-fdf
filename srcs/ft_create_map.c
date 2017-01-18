@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/05 15:50:15 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/16 17:29:09 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/18 13:59:38 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ int		ft_count(char *argv, t_env *fdf)
 	get_next_line(fd, &line);
 	fdf->map.nblin++;
 	fdf->map.nbcol = ft_count_words_sep(line, ' ');
-	free(line);
+	if (line)
+		free(line);
 	while (get_next_line(fd, &line))
 	{
 		free(line);
@@ -39,14 +40,15 @@ int		ft_fill_map(int fd, t_env *fdf)
 	char	*line;
 	char	**split_line;
 
-	fdf->map.map = ft_createtab(fdf->map.nblin, fdf->map.nbcol);
+	fdf->map.map = ft_create_tab_two(fdf->map.nbcol, fdf->map.nblin);
 	while (get_next_line(fd, &line))
 	{
 		fdf->map.x = 0;
 		split_line = ft_strsplit(line, ' ');
 		while (split_line[fdf->map.x] != NULL)
 		{
-			fdf->map.map[fdf->map.y][fdf->map.x] = ft_atoi(split_line[fdf->map.x]);
+			fdf->map.map[fdf->map.y][fdf->map.x] =
+				ft_atoi(split_line[fdf->map.x]);
 			free(split_line[fdf->map.x]);
 			fdf->map.x++;
 		}

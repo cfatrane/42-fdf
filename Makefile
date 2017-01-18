@@ -6,7 +6,7 @@
 #    By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/29 16:05:24 by cfatrane          #+#    #+#              #
-#*   Updated: 2017/01/17 17:33:33 by cfatrane         ###   ########.fr       *#
+#*   Updated: 2017/01/18 14:47:44 by cfatrane         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,13 +15,15 @@ NAME = fdf
 SRC_PATH = ./srcs/
 
 SRC_NAME =	main.c					\
+			ft_check.c				\
 			ft_fdf.c				\
 			ft_create_map.c			\
 			ft_mlx.c				\
+			ft_init.c				\
 			ft_bresenham.c			\
 			ft_pixel_put.c			\
 			ft_draw.c				\
-			ft_proj.c				\
+			ft_point.c				\
 			ft_hook.c				\
 			ft_key_hook_move.c		\
 			ft_key_hook_color.c		\
@@ -40,7 +42,7 @@ LDFLAGS = -L./libft/
 
 LFT = -lft
 
-CC = gcc 
+CC = gcc $(CFLAGS)
 
 CFLAGS = -Wall -Wextra -Werror
 
