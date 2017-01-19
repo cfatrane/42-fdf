@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/17 17:48:04 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/18 14:23:01 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/19 13:33:31 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_check_data(char *argv)
 	fd = (open(argv, O_RDONLY));
 	if (fd == -1)
 		return (-1);
-	if (get_next_line(fd, &line) == 0)
+	if (get_next_line(fd, &line) == 0 || get_next_line(fd, &line) == -1)
 	{
 		ft_putendl_fd("Na data found", 2);
 		return (-1);
