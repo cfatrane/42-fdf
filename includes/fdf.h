@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/01 10:29:16 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/18 15:37:46 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/19 20:28:01 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include "../libft/libft.h"
 # include "fdf_define.h"
 # include "fdf_struct.h"
-# include <stdio.h>
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>

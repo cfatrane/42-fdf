@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/17 17:48:04 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/19 13:33:31 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/19 20:30:14 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int	ft_check_data(char *argv)
 		ft_putendl_fd("Na data found", 2);
 		return (-1);
 	}
+	if ((close(fd)) == -1)
+		return (-1);
 	return (0);
 }
 

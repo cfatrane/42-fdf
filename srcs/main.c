@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/01 17:36:29 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/18 14:13:29 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/19 20:34:02 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,5 @@ int	main(int argc, char **argv)
 		return (-1);
 	else
 		ft_fdf(argv[1]);
+	return (0);
 }
