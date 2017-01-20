@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/05 15:50:15 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/18 13:59:38 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/20 11:29:45 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ int		ft_fill_map(int fd, t_env *fdf)
 	char	*line;
 	char	**split_line;
 
-	fdf->map.map = ft_create_tab_two(fdf->map.nbcol, fdf->map.nblin);
+	if (!(fdf->map.map = ft_create_tab_two(fdf->map.nbcol, fdf->map.nblin)))
+		return (-1);
 	while (get_next_line(fd, &line))
 	{
 		fdf->map.x = 0;
