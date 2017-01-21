@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/05 15:50:15 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/20 11:29:45 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/21 11:07:18 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ int		ft_count(char *argv, t_env *fdf)
 		free(line);
 	while (get_next_line(fd, &line))
 	{
-		free(line);
 		fdf->map.nblin++;
+		free(line);
 	}
 	if ((close(fd)) == -1)
 		return (-1);
