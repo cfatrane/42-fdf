@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew_two.c                                    :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/20 11:36:53 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/01/28 14:35:01 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/01/27 20:15:12 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/01/27 20:17:58 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_strnew_two(size_t x, size_t y)
+long	ft_atol(const char *str)
 {
-	char	**tab;
-	char	*tableau2;
-	size_t	i;
+	long int	nb;
+	int			sign;
 
-	i = 0;
-	tab = (char **)malloc(sizeof(char *) * y);
-	tableau2 = (char *)malloc(sizeof(char) * x * y);
-	while (i < y)
+	nb = 0;
+	sign = 1;
+	while (ft_isspace((int)*str))
+		str++;
+	if (*str == '+' || *str == '-')
 	{
-		tab[i] = &tableau2[i * x];
-		i++;
+		if (*str == '-')
+			sign = (-1);
+		str++;
 	}
-	return (tab);
+	while (ft_isdigit((int)*str))
+	{
+		nb = nb * 10 + *str - '0';
+		str++;
+	}
+	return (sign * nb);
 }

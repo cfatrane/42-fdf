@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlen.c                                        :+:      :+:    :+:   */
+/*   ft_nbrcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/01 16:01:54 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/02 13:40:59 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/01/28 12:09:46 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/01/28 12:11:31 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_lstlen(t_list *list)
+int	ft_nbrcmp(size_t nb1, size_t nb2)
 {
-	if (list == NULL)
-		return (0);
-	return (ft_lstlen(list->next) + 1);
+	if (nb1 != nb2)
+		return (-1);
+	return (0);
 }

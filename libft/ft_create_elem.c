@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrev_itoa.c                                   :+:      :+:    :+:   */
+/*   ft_create_elem.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/22 10:43:37 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/11/22 10:43:39 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/01/28 18:08:41 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/01/28 18:17:11 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrev_itoa(char *str)
+t_list	*ft_create_elem(void *content)
 {
-	int		len;
-	int		i;
-	char	tmp;
+	t_list	*list;
 
-	len = 0;
-	i = 0;
-	while (str[len])
-		++len;
-	while (i < (len / 2))
-	{
-		tmp = str[i];
-		str[i] = str[len - i - 1];
-		str[len - i - 1] = tmp;
-		i++;
-	}
-	str[len] = '\0';
-	return (str);
+	list = (t_list*)malloc(sizeof(*list));
+	list->content = content;
+	list->next = NULL;
+	return (list);
 }

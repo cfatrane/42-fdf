@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_itoa.c                                    :+:      :+:    :+:   */
+/*   ft_list_merge.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/22 10:32:27 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/11/22 10:32:32 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/01/28 19:30:35 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/01/28 19:31:17 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_count_itoa(int num)
+void	ft_list_merge(t_list **begin_list1, t_list *begin_list2)
 {
-	int			count;
-	long int	nb;
-
-	count = 0;
-	nb = num;
-	if (num < 0)
-	{
-		nb = -nb;
-		count++;
-	}
-	if (num == 0)
-		count = 1;
-	while (nb > 0)
-	{
-		nb /= 10;
-		count++;
-	}
-	return (count);
+	if ((*begin_list1) == NULL)
+		*begin_list1 = begin_list2;
+	else if ((*begin_list1)->next == NULL)
+		(*begin_list1)->next = begin_list2;
+	else
+		ft_list_merge(&((*begin_list1)->next), begin_list2);
 }

@@ -6,35 +6,52 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 10:33:45 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/11/25 16:47:36 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/01/23 12:06:34 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa(int num)
+static int	count_size(int n)
 {
-	char		*str;
+	int i;
+
+	i = 0;
+	if (n < 0)
+		n *= -1;
+	while (n != 0)
+	{
+		n /= 10;
+		i++;
+	}
+	return (i);
+}
+
+char		*ft_itoa(int num)
+{
+	char		*dst;
+	int			count;
 	int			i;
-	int			lenght;
-	int			sign;
 	long int	n;
 
 	n = num;
-	if ((sign = n) < 0)
-		n = -n;
-	lenght = ft_count_itoa(num);
-	if (!(str = (char*)malloc(sizeof(*str) * (lenght + 1))))
+	count = count_size(n);
+	i = 0;
+	if (n < 0 || count == 0)
+		count++;
+	if (!(dst = ft_strnew(count)))
 		return (NULL);
-	str[0] = (n % 10) + 48;
-	i = 1;
-	while ((n /= 10) > 0)
+	if (n < 0)
 	{
-		str[i] = (n % 10) + 48;
+		n *= -1;
+		dst[0] = '-';
 		i++;
 	}
-	if (sign < 0)
-		str[i++] = '-';
-	str[i] = '\0';
-	return (ft_strrev_itoa(str));
+	while (count > i)
+	{
+		count--;
+		dst[count] = (n % 10) + '0';
+		n /= 10;
+	}
+	return (dst);
 }
