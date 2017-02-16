@@ -6,7 +6,7 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 10:45:03 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/02/09 18:07:16 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/02/16 15:00:12 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_atoi(const char *str);
 long				ft_atol(const char *str);
 long long			ft_atoll(const char *str);
+unsigned long long	ft_atoull(const char *str);
 
 void				ft_putchar(char c);
 void				ft_putchar_fd(char c, int fd);
@@ -173,6 +174,8 @@ int					ft_nbrcmp(size_t nb1, size_t nb2);
 int					ft_nbcmp_min(int nb1, int nb2);
 int					ft_nbcmp_max(int nb1, int nb2);
 
+int					ft_iseven(int nb);
+int					ft_ismultiple(int nb, int mlt);
 int					ft_size_tab_base(size_t n, int base);
 int					ft_count_words_sep(char const *s, char c);
 size_t				ft_strlen_sep(char const *s, char c);
@@ -181,5 +184,6 @@ void				ft_swap(int *a, int *b);
 int					ft_sqrt(int nb);
 int					*ft_range(int min, int max);
 int					ft_hex_to_dec(char *hex);
+void				ft_putmap(char **map);
 
 #endif
