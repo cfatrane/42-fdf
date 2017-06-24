@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoull.c                                        :+:      :+:    :+:   */
+/*   ft_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/16 14:59:45 by cfatrane          #+#    #+#             */
-/*   Updated: 2017/02/16 18:10:03 by cfatrane         ###   ########.fr       */
+/*   Created: 2017/03/02 13:52:30 by cfatrane          #+#    #+#             */
+/*   Updated: 2017/03/02 13:53:06 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned long long	ft_atoull(const char *str)
+void	*ft_realloc(void *ptr, size_t newsize)
 {
-	unsigned long long	nb;
-	unsigned long long	tmp;
+	char	*newptr;
+	size_t	cursize;
 
-	nb = 0;
-	tmp = 0;
-	while (ft_isspace((int)*str))
-		str++;
-	if (*str == '+')
-		str++;
-	while (ft_isdigit((int)*str))
-	{
-		tmp = tmp * 10 + *str - '0';
-		str++;
-		if (tmp < nb)
-			return (0);
-		nb = tmp;
-	}
-	return (nb);
+	if (ptr == 0)
+		return (malloc(newsize));
+	cursize = sizeof(ptr);
+	if (newsize <= cursize)
+		return (ptr);
+	newptr = malloc(newsize);
+	ft_memcpy(ptr, newptr, cursize);
+	free(ptr);
+	return (newptr);
 }

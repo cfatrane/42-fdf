@@ -6,13 +6,13 @@
 /*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/16 11:24:12 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/12/29 18:17:44 by cfatrane         ###   ########.fr       */
+/*   Updated: 2017/02/17 11:40:12 by cfatrane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char*ft_itoa_base(unsigned long long int n, char *base)
+char	*ft_itoa_base(unsigned long long int n, char *base)
 {
 	char				*str;
 	unsigned long long	i;
